@@ -1,4 +1,4 @@
-// const monaco = require("monaco-editor");
+const monaco = require("monaco-editor");
 
 const rules = [
   { token: "keyword", foreground: "f7768e" }, // This keyword, HTML elements, Regex group symbol, CSS units, Terminal Red

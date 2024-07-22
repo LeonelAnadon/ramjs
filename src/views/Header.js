@@ -17,7 +17,7 @@ module.exports = {
     return m(
       "header",
       m("div", [
-        m("h1", [m('img', {src: './src/assets/svg (1).svg', width: 100}),m("span", "RamJS")]),
+        m("h1", [m('img', {src: 'assets/svg (1).svg', width: 100}),m("span", "RamJS")]),
         m("div.btn__cont", [
           m("button", { onclick: CodeMirror.triggerUpdateConsole }, [
             m("p", "RUN 🌀"),
