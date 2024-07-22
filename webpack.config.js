@@ -10,7 +10,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "bin"),
     filename: "main.js",
-    publicPath: "/ramjs",
+    publicPath: "/ramjs/",
     clean: true,
   },
   module: {
