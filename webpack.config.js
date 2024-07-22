@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const MonacoWebpackPlugin = require("monaco-editor-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -10,7 +11,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "bin"),
     filename: "main.js",
-    publicPath: "/ramjs/",
+    publicPath: "/ramjs",
     clean: true,
   },
   module: {
@@ -31,6 +32,12 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "[name].css",
       chunkFilename: "[id].css",
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: "src/assets", to: "assets" },
+        { from: "src/index.html", to: "index.html" },
+      ],
     }),
   ],
   optimization: {
