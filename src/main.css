@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+:root {
+  --color-text: #c0caf5;
+  --color-background: #1a1b26;
+  --color-blue: #1a2243;
+  --darker: #04011e;
+  --m: 0 13rem;
+}
+
+@media (max-width: 1000px) {
+  :root {
+    --m: 0 7rem;
+  }
+}
+
+@media (max-width: 700px) {
+  :root {
+    --m: 0 1rem;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  color-scheme: dark;
+  line-height: 1.6;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+h1 {
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+}
+h1 > img{
+  max-width: 2.5rem;
+}
+
+button {
+  background-color: transparent;
+  border: 2px solid rgb(34, 34, 34);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: .5rem 1rem;
+  transition: all .2s ease;
+  font-weight: bold;
+  color: var(--color-text);
+  line-height: 1.2;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.keys{
+  display: flex;
+  gap: .3rem;
+}
+button span {
+  font-weight: bold;
+  padding: .4rem 0rem;
+  width: 2.6rem;
+  background-color: var(--color-blue);
+  border-radius: 8px;
+  border: 1px solid rgb(48, 48, 48);
+}
+
+button:hover,
+button:focus {
+  border-color: #c6d0ff;
+  outline: none;
+}
+
+header>div,
+footer>div,
+main>div {
+  margin: var(--m);
+  display: flex;
+  flex: 1;
+}
+
+header {
+  min-height: 2.5rem;
+  display: flex;
+  background-color: #04011e;
+  align-items: center;
+}
+
+header>div {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn__cont {
+  display: flex;
+  gap: 1rem;
+}
+main {
+  flex: 1;
+}
+main>div {
+  margin-top: 2rem;
+  flex-direction: column;
+  flex: 1;
+}
+.console__re {
+  overflow: hidden;
+}
+.console__cont p {
+  border-bottom: 1px solid #333333;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+footer {
+  background-color: #04011e;
+}
+footer p {
+  font-size: .8rem;
+}
+.resizable {
+  width: 100%;
+  height: 200px;
+  border: 1px solid black;
+  box-shadow: 0 0 .4rem #808080;
+  margin-bottom: 10rem;
+}
+
