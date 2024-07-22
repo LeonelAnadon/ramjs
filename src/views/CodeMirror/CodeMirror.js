@@ -75,7 +75,7 @@ const Monaco = {
       {
         value:
           vnode.attrs.value ||
-          '// Escribe tu código aquí\nconsole.log("Hola, Mundo!");',
+          '// Escribí tu código acá\nconsole.log("Hola, Mundo!");',
         language: "javascript",
         fontSize: 18,
         automaticLayout: true,
