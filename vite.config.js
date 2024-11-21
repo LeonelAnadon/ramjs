@@ -21,6 +21,5 @@ export default defineConfig({
   build: {
     outDir: "dist",
     cssCodeSplit: true,
-    minify: false,
   },
 });
