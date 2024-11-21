@@ -1,5 +1,5 @@
 import CodeMirror from "./CodeMirror/CodeMirror";
-
+import iconRam from '../assets/icon.svg'
 export default {
   oninit: function (_) {
     document.addEventListener("keydown", this.handleKeyDown);
@@ -18,7 +18,7 @@ export default {
       "header",
       m("div", [
         m("h1", [
-          m("img", { src: "/assets/apple-touch-icon.png", width: 100 }),
+          m("img", { src: iconRam, width: 100 }),
           m("span", "RamJS"),
         ]),
         m("div.btn__cont", [
