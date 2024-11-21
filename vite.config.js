@@ -21,14 +21,6 @@ export default defineConfig({
   build: {
     outDir: "dist",
     cssCodeSplit: true,
-    minify: "terser",
-    terserOptions: {
-      compress: {
-        evaluate: false, 
-      },
-      mangle: false,
-      keep_classnames: true,
-      keep_fnames: true,
-    },
+    minify: false,
   },
 });
