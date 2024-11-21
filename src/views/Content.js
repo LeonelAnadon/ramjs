@@ -1,6 +1,9 @@
-const CodeMirror = require("./CodeMirror/CodeMirror.js");
-module.exports = {
+import CodeMirror from "./CodeMirror/CodeMirror.js";
+
+export default {
   view: function () {
-    return m("main", m("div", [m(CodeMirror)]));
+    return m("main", m("div", 
+      [m(CodeMirror)]
+    ));
   },
 };

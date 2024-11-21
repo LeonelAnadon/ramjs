@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   oninit: (vnode) => {
     vnode.state.currentYear = new Date().getFullYear();
   },

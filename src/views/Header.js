@@ -1,6 +1,6 @@
-const CodeMirror = require("./CodeMirror/CodeMirror");
+import CodeMirror from "./CodeMirror/CodeMirror";
 
-module.exports = {
+export default {
   oninit: function (_) {
     document.addEventListener("keydown", this.handleKeyDown);
   },
@@ -17,11 +17,14 @@ module.exports = {
     return m(
       "header",
       m("div", [
-        m("h1", [m('img', {src: 'assets/svg (1).svg', width: 100}),m("span", "RamJS")]),
+        m("h1", [
+          m("img", { src: "src/assets/svg (1).svg", width: 100 }),
+          m("span", "RamJS"),
+        ]),
         m("div.btn__cont", [
           m("button", { onclick: CodeMirror.triggerUpdateConsole }, [
-            m("p", "RUN 🌀"),
-            m("div.keys", [m("span", "Ctrl"), m("span", "S")]),
+            m("p", "RUN"),
+            m("div.keys", [m("span", "Ctrl+S")]),
           ]),
           m("button", { onclick: CodeMirror.triggerCleanup }, "Limpiar"),
         ]),

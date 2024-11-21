@@ -1,8 +1,8 @@
-const Content = require("./Content");
-const Header = require("./Header");
-const Footer = require("./Footer");
+import Content from "./Content";
+import Footer from "./Footer";
+import Header from "./Header";
 
-module.exports = {
+export default {
   view: function () {
     return m("div#app", [m(Header), m(Content), m(Footer)]);
   },

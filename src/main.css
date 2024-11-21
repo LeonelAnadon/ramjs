@@ -2,8 +2,8 @@
 
 :root {
   --color-text: #c0caf5;
-  --color-background: #1a1b26;
-  --color-blue: #1a2243;
+  --color-background: #282a36;
+  --color-blue: #282a36;
   --darker: #04011e;
   --m: 0 13rem;
 }
@@ -40,12 +40,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  overflow: hidden;
 }
 
 #app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow: hidden;
 }
 h1 {
   font-size: 1.3rem;
@@ -58,7 +60,7 @@ h1 > img{
 
 button {
   background-color: transparent;
-  border: 2px solid rgb(34, 34, 34);
+  border: none;
   border-radius: 8px;
   cursor: pointer;
   padding: .5rem 1rem;
@@ -67,20 +69,17 @@ button {
   color: var(--color-text);
   line-height: 1.2;
   display: flex;
-  gap: 1rem;
+  gap: .4rem;
   align-items: center;
 }
 .keys{
   display: flex;
-  gap: .3rem;
 }
 button span {
   font-weight: bold;
-  padding: .4rem 0rem;
+  padding: .4rem;
   width: 2.6rem;
-  background-color: var(--color-blue);
   border-radius: 8px;
-  border: 1px solid rgb(48, 48, 48);
 }
 
 button:hover,
@@ -92,7 +91,6 @@ button:focus {
 header>div,
 footer>div,
 main>div {
-  margin: var(--m);
   display: flex;
   flex: 1;
 }
@@ -102,6 +100,7 @@ header {
   display: flex;
   background-color: #04011e;
   align-items: center;
+  padding: 0 1rem;
 }
 
 header>div {
@@ -117,9 +116,9 @@ main {
   flex: 1;
 }
 main>div {
+  display: flex;
   margin-top: 2rem;
   flex-direction: column;
-  flex: 1;
 }
 .console__re {
   overflow: hidden;
@@ -131,6 +130,7 @@ main>div {
 }
 footer {
   background-color: #04011e;
+  padding: 0 1rem;
 }
 footer p {
   font-size: .8rem;
@@ -143,3 +143,11 @@ footer p {
   margin-bottom: 10rem;
 }
 
+.codebox {
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+}
+.codebox > div {
+  flex: 1;
+}

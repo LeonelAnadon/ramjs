@@ -1,62 +1,63 @@
-const monaco = require("monaco-editor");
+import * as monaco from "monaco-editor";
 
 const rules = [
-  { token: "keyword", foreground: "f7768e" }, // This keyword, HTML elements, Regex group symbol, CSS units, Terminal Red
-  { token: "number", foreground: "ff9e64" }, // Number and Boolean constants, Language support constants
-  { token: "variable.parameter", foreground: "e0af68" }, // Function parameters, Regex character sets, Terminal Yellow
-  { token: "variable", foreground: "cfc9c2" }, // Parameters inside functions (semantic highlighting only)
-  { token: "string", foreground: "9ece6a" }, // Strings, CSS class names
-  { token: "key", foreground: "73daca" }, // Object literal keys, Markdown links, Terminal Green
-  { token: "regexp", foreground: "b4f9f8" }, // Regex literal strings
-  { token: "type", foreground: "2ac3de" }, // Language support functions, CSS HTML elements
-  { token: "property", foreground: "7dcfff" }, // Object properties, Regex quantifiers and flags, Markdown headings, Terminal Cyan, Markdown code, Import/export keywords
-  { token: "function", foreground: "7aa2f7" }, // Function names, CSS property names, Terminal Blue
-  { token: "keyword.control", foreground: "bb9af7" }, // Control Keywords, Storage Types, Regex symbols and operators, HTML Attributes, Terminal Magenta
-  { token: "variable.other", foreground: "c0caf5" }, // Variables, Class names, Terminal White
-  { token: "foreground", foreground: "a9b1d6" }, // Editor Foreground
-  { token: "text", foreground: "9aa5ce" }, // Markdown Text, HTML Text
-  { token: "comment", foreground: "565f89" }, // Comments
-  { token: "delimiter", foreground: "414868" }, // Terminal Black
+  { token: "keyword", foreground: "ff79c6" }, // Keywords (magenta)
+  { token: "number", foreground: "f1fa8c" }, // Numbers and Booleans (yellow)
+  { token: "variable.parameter", foreground: "f8f8f2" }, // Function parameters (light gray)
+  { token: "variable", foreground: "f8f8f2" }, // Variables (light gray)
+  { token: "string", foreground: "f1fa8c" }, // Strings (yellow)
+  { token: "key", foreground: "50fa7b" }, // Object literal keys (green)
+  { token: "regexp", foreground: "ffb86c" }, // Regex literals (orange)
+  { token: "type", foreground: "8be9fd" }, // Types (cyan)
+  { token: "property", foreground: "bd93f9" }, // Object properties (light purple)
+  { token: "function", foreground: "8be9fd" }, // Function names (cyan)
+  { token: "keyword.control", foreground: "ff79c6" }, // Control keywords (magenta)
+  { token: "variable.other", foreground: "f8f8f2" }, // Other variables (light gray)
+  { token: "foreground", foreground: "f8f8f2" }, // Editor foreground (light gray)
+  { token: "text", foreground: "f8f8f2" }, // Text (light gray)
+  { token: "comment", foreground: "6272a4" }, // Comments (blue-gray)
+  { token: "delimiter", foreground: "f8f8f2" }, // Delimiters (light gray)
 ];
+
 const colors = {
-  "editor.background": "#1a1b26", // Editor Background (Night)
-  "editor.foreground": "#a9b1d6", // Editor Foreground
-  "editorLineNumber.foreground": "#737aa2",
-  "editorLineNumber.activeForeground": "#c0caf5",
-  "editorCursor.foreground": "#c0caf5",
-  "editor.selectionBackground": "#33467c",
-  "editor.inactiveSelectionBackground": "#1a1b26",
-  "editor.wordHighlightBackground": "#3d59a1",
-  "editor.wordHighlightStrongBackground": "#3d59a1",
-  "editor.findMatchBackground": "#3d59a1",
-  "editor.findMatchHighlightBackground": "#3d59a1",
-  "editor.findRangeHighlightBackground": "#3d59a1",
-  "editor.hoverHighlightBackground": "#3d59a1",
-  "editor.lineHighlightBackground": "#1a1b26",
-  "editor.lineHighlightBorder": "#1a1b26",
-  "editorIndentGuide.background": "#3b4261",
-  "editorIndentGuide.activeBackground": "#3b4261",
-  "editorWhitespace.foreground": "#3b4261",
-  "editorBracketMatch.background": "#3b4261",
-  "editorBracketMatch.border": "#3b4261",
-  "editorGutter.background": "#1a1b26",
-  "editorGutter.modifiedBackground": "#3b4261",
-  "editorGutter.addedBackground": "#3b4261",
-  "editorGutter.deletedBackground": "#3b4261",
-  "editorOverviewRuler.modifiedForeground": "#3b4261",
-  "editorOverviewRuler.addedForeground": "#3b4261",
-  "editorOverviewRuler.deletedForeground": "#3b4261",
-  "editorOverviewRuler.errorForeground": "#db4b4b",
-  "editorOverviewRuler.warningForeground": "#e0af68",
-  "editorOverviewRuler.infoForeground": "#0db9d7",
-  "editorError.foreground": "#db4b4b",
-  "editorWarning.foreground": "#e0af68",
-  "editorInfo.foreground": "#0db9d7",
-  "editorHint.foreground": "#1abc9c",
-  "editorMarkerNavigation.background": "#1a1b26",
-  "editorMarkerNavigationError.background": "#db4b4b",
-  "editorMarkerNavigationWarning.background": "#e0af68",
-  "editorMarkerNavigationInfo.background": "#0db9d7",
+  "editor.background": "#282a36", // Background (dark purple)
+  "editor.foreground": "#f8f8f2", // Foreground (light gray)
+  "editorLineNumber.foreground": "#6272a4", // Line numbers (blue-gray)
+  "editorLineNumber.activeForeground": "#f8f8f2", // Active line number (light gray)
+  "editorCursor.foreground": "#f8f8f2", // Cursor (light gray)
+  "editor.selectionBackground": "#44475a", // Selection (dark gray)
+  "editor.inactiveSelectionBackground": "#44475a", // Inactive selection (dark gray)
+  "editor.wordHighlightBackground": "#44475a", // Word highlight (dark gray)
+  "editor.wordHighlightStrongBackground": "#44475a", // Strong word highlight (dark gray)
+  "editor.findMatchBackground": "#ff79c6", // Find match (magenta)
+  "editor.findMatchHighlightBackground": "#ff79c6", // Find match highlight (magenta)
+  "editor.findRangeHighlightBackground": "#ff79c6", // Find range highlight (magenta)
+  "editor.hoverHighlightBackground": "#ff79c6", // Hover highlight (magenta)
+  "editor.lineHighlightBackground": "#282a36", // Line highlight (dark gray)
+  "editor.lineHighlightBorder": "#282a36", // Line highlight border (dark gray)
+  "editorIndentGuide.background": "#6272a4", // Indentation guide (blue-gray)
+  "editorIndentGuide.activeBackground": "#ff79c6", // Active indentation guide (magenta)
+  "editorWhitespace.foreground": "#6272a4", // Whitespace (blue-gray)
+  "editorBracketMatch.background": "#6272a4", // Bracket match (blue-gray)
+  "editorBracketMatch.border": "#6272a4", // Bracket match border (blue-gray)
+  "editorGutter.background": "#282a36", // Gutter (dark purple)
+  "editorGutter.modifiedBackground": "#ffb86c", // Modified gutter (orange)
+  "editorGutter.addedBackground": "#50fa7b", // Added gutter (green)
+  "editorGutter.deletedBackground": "#ff5555", // Deleted gutter (red)
+  "editorOverviewRuler.modifiedForeground": "#ffb86c", // Modified overview (orange)
+  "editorOverviewRuler.addedForeground": "#50fa7b", // Added overview (green)
+  "editorOverviewRuler.deletedForeground": "#ff5555", // Deleted overview (red)
+  "editorOverviewRuler.errorForeground": "#ff5555", // Error overview (red)
+  "editorOverviewRuler.warningForeground": "#f1fa8c", // Warning overview (yellow)
+  "editorOverviewRuler.infoForeground": "#8be9fd", // Info overview (cyan)
+  "editorError.foreground": "#ff5555", // Error text (red)
+  "editorWarning.foreground": "#f1fa8c", // Warning text (yellow)
+  "editorInfo.foreground": "#8be9fd", // Info text (cyan)
+  "editorHint.foreground": "#50fa7b", // Hint text (green)
+  "editorMarkerNavigation.background": "#282a36", // Marker navigation background (dark purple)
+  "editorMarkerNavigationError.background": "#ff5555", // Marker navigation error (red)
+  "editorMarkerNavigationWarning.background": "#f1fa8c", // Marker navigation warning (yellow)
+  "editorMarkerNavigationInfo.background": "#8be9fd", // Marker navigation info (cyan)
 };
 
 const Monaco = {
@@ -70,12 +71,15 @@ const Monaco = {
       colors,
     });
     monaco.editor.setTheme("default");
+    const draft = localStorage.getItem("draft");
+    const value =
+      vnode.attrs.value ||
+      draft ||
+      '// Escribí tu código acá\nconsole.log("Hola, Mundo!");';
     Monaco.editor = vnode.state.editor = monaco.editor.create(
       document.getElementById("editor"),
       {
-        value:
-          vnode.attrs.value ||
-          '// Escribí tu código acá\nconsole.log("Hola, Mundo!");',
+        value,
         language: "javascript",
         fontSize: 18,
         automaticLayout: true,
@@ -84,7 +88,7 @@ const Monaco = {
     Monaco.consoleOutput = monaco.editor.create(
       document.getElementById("output"),
       {
-        value: "",
+        value: "Consola...",
         language: "json",
         formatting: true,
         formatOnPaste: true,
@@ -138,7 +142,7 @@ const Monaco = {
           .run()
           .once("end", () => {
             let flattened = consoleOutput.flat();
-            items = flattened.map((x) => JSON.stringify(x, null, 0));
+            items = flattened.map((x) => JSON.stringify(x, null, 2));
             console.log(items);
             items = items?.join("\n\r");
             m.redraw();
@@ -165,6 +169,7 @@ const Monaco = {
       try {
         const code = Monaco.editor.getValue();
         const r = await Monaco.runInSandbox(code);
+        localStorage.setItem("draft", code);
         Monaco.consoleOutput.setValue("", "auto");
         Monaco.consoleOutput.setValue(r, "auto");
       } catch (error) {
@@ -183,14 +188,15 @@ const Monaco = {
   },
 
   view: (vnode) => {
-    return m("section", [
-      m("div", { id: "editor", style: { height: "400px" } }),
-      m("div.console__cont", [
-        m("p", "Consola 💨"),
-        m("div.console__re", { id: "output", style: { height: "300px" } }),
-      ]),
+    return m("section.codebox", [
+      m("div", { id: "editor", style: { height: "85vh", width: "100%" } }),
+      m("div", { id: "output", style: { height: "85vh", width: "100%" } }),
+      // m("div.console__cont", [
+      //   m("p", "Consola 💨"),
+      //   m("div.console__re", { id: "output", style: { height: "70vh", width: "100%" } }),
+      // ]),
     ]);
   },
 };
 
-module.exports = Monaco;
+export default Monaco;
